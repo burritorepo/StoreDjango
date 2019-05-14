@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('principal/', include('shopcursos.urls')),
     path('cart/', include('cart.urls')),
+    path('orders/', include('orders.urls')),
     path('', LoginView.as_view(template_name='index.html'), name='login'),
 ]
 

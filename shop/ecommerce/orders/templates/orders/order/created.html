@@ -1,0 +1,17 @@
+{% extends 'shopcursos/base.html' %}
+{% load static %}
+{% block title %}
+    Su carrito de compras | Gracias
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row" style="margin-top: 6%">
+            <div class="col-md-8 col-md-offset-2">
+                <h3 class="page-header">Gracias por comprar con nosotros en CODIGO
+                </h3>
+                <p> Su orden ha sido completada satisfactoriamente. tu numero de orden es <strong>{{ order.id }}</strong>.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
