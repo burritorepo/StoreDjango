@@ -23,6 +23,6 @@ class MySignUpView(View):
                 '',form.cleaned_data.get('password1'),
                 is_active = True
             )
-            return HttpResponseRedirect('accounts/login/?next=/')
+            return HttpResponseRedirect('/accounts/login/?next=/')
         return render(request, self.template_name, {'form': form})
 

@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+
     <div class="container">
         <div class="row" style="margin-top: 6%">
             <div class="col-md-8">
@@ -12,8 +13,27 @@
                 <form action="." method="post">
                     {% csrf_token %}
                     {{ form.as_p }}<br>
-                    <input type="submit" class="btn btn-primary" value="Enviar Orden">
+                    <input id="buyButton" type="submit" class="btn btn-primary" value="Enviar Orden">
                 </form>
+                <script src="https://checkout.culqi.com/js/v3"></script>
+                <script>
+                    // Configura tu llave pública
+                    Culqi.publicKey = 'pk_test_9t8aWObAEAhCwwHy';
+                    // Configura tu Culqi Checkout
+                    Culqi.settings({
+                        title: 'Culqi Store',
+                        currency: 'PEN',
+                        description: 'Polo Culqi lover',
+                        amount: 3500
+                    });
+                    // Usa la funcion Culqi.open() en el evento que desees
+                    const button = document.querySelector('#buyButton');
+                    button.addEventListener('click', function(e) {
+                        // Abre el formulario con las opciones de Culqi.settings
+                        Culqi.open();
+                        e.preventDefault();
+                    })
+                </script>
             </div>
            
         </div>
